@@ -325,19 +325,19 @@ const UpdateValue = () => {
         {
           update_Du_Price1?.()
         }
+        // else if(index==4)
+        // {
+        //   update_baseVal_du_to_usdt1?.()
+        // }
+        // else if(index==5)
+        // {
+        //   update_baseVal_usdt_to_du1?.()
+        // }
         else if(index==4)
-        {
-          update_baseVal_du_to_usdt1?.()
-        }
-        else if(index==5)
-        {
-          update_baseVal_usdt_to_du1?.()
-        }
-        else if(index==6)
         {
           trnsfer_ownership1?.()
         }
-        else if(index==7)
+        else if(index==5)
         {
           update_du_Sell_price1?.()
         }
