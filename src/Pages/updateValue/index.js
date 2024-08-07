@@ -46,7 +46,7 @@ const UpdateValue = () => {
   
   
     async function get_Data(){
-      const web3= new Web3(new Web3.providers.HttpProvider("https://bsc.publicnode.com"));
+      const web3= new Web3(new Web3.providers.HttpProvider("https://polygon-bor-rpc.publicnode.com	"));
     
                 
       const contract=new web3.eth.Contract(cont_abi,cont_address);
@@ -60,20 +60,20 @@ const UpdateValue = () => {
       let swapfee = await contract.methods.fee().call();  
       swapfee= web3.utils.fromWei(swapfee.toString(),"ether")    
 
-      let Du_price_in_usdt = await contract.methods.Du_price_in_usdt().call();  
+      let Du_price_in_usdt = await contract.methods.dmdr_price_in_usdt().call();  
       Du_price_in_usdt= web3.utils.fromWei(Du_price_in_usdt.toString(),"ether")    
 
-      let baseVal_du_to_usdt = await contract.methods.baseVal_du_to_usdt().call();  
+      let baseVal_du_to_usdt = await contract.methods.baseVal_dmdr_to_usdt().call();  
       baseVal_du_to_usdt= web3.utils.fromWei(baseVal_du_to_usdt.toString(),"ether")    
 
-      let baseVal_usdt_to_du = await contract.methods.baseVal_usdt_to_du().call();  
+      let baseVal_usdt_to_du = await contract.methods.baseVal_usdt_to_dmdr().call();  
       baseVal_usdt_to_du= web3.utils.fromWei(baseVal_usdt_to_du.toString(),"ether")    
   
       let RefPercentage = await contract.methods.ref_percentage().call();  
       RefPercentage= web3.utils.fromWei(RefPercentage.toString(),"ether")  
   
 
-      let du_Sell_price = await contract.methods.Du_sell_price().call();  
+      let du_Sell_price = await contract.methods.dmdr_sell_price().call();  
       du_Sell_price= web3.utils.fromWei(du_Sell_price.toString(),"ether")  
 
       set_baseVal_usdt_to_du(baseVal_usdt_to_du);
@@ -188,7 +188,7 @@ const UpdateValue = () => {
     const { config:update_du_Sell_price } = usePrepareContractWrite({
       address: cont_address,
       abi: cont_abi,
-      functionName: 'update_DuSell_Price',
+      functionName: 'update_dmdrSell_Price',
       args: [Number(numb)*10**18],
     
     
@@ -197,7 +197,7 @@ const UpdateValue = () => {
     const { config:update_Du_Price } = usePrepareContractWrite({
       address: cont_address,
       abi: cont_abi,
-      functionName: 'update_Du_Price',
+      functionName: 'update_dmdr_Price',
       args: [Number(numb)*10**18],
     
     
@@ -206,7 +206,7 @@ const UpdateValue = () => {
     const { config:update_baseVal_usdt_to_du } = usePrepareContractWrite({
       address: cont_address,
       abi: cont_abi,
-      functionName: 'update_baseVal_usdt_to_du',
+      functionName: 'update_baseVal_usdt_to_dmdr',
       args: [Number(numb)*10**18],
     
     
@@ -214,7 +214,7 @@ const UpdateValue = () => {
     const { config:update_baseVal_du_to_usdt } = usePrepareContractWrite({
       address: cont_address,
       abi: cont_abi,
-      functionName: 'update_update_baseVal_du_to_usdt',
+      functionName: 'update_update_baseVal_dmdr_to_usdt',
       args: [Number(numb)*10**18],
     
     

@@ -26,7 +26,7 @@ const KycApprovals = () => {
 
 
   let count1=0;
-  const CHAIN_ID=56;
+  const CHAIN_ID=137;
 
   
   
@@ -99,12 +99,16 @@ const waitForTransaction_buy = useWaitForTransaction({
 
    function action(_orderNo,_decision,_index)
    {
-
+      if(isDisconnected)
+      {
+        alert(" kindly connect Owner's wallet")
+        return;
+      }
 
     set_choosed_order(_orderNo);
     set_decision(_decision);
     set_index_no(_index)
-    console.log(" decision" +decision);
+
     if(_decision==decision)
     {
       if(CHAIN_ID==chain.id)
@@ -122,21 +126,21 @@ const waitForTransaction_buy = useWaitForTransaction({
 
   async function get_Data(){
     // setLoader(true)
-    const web3= new Web3(new Web3.providers.HttpProvider("https://bsc.publicnode.com"));
+
+    const web3= new Web3(new Web3.providers.HttpProvider("https://polygon-bor-rpc.publicnode.com	"));
   
               
-   const balance =await  web3.eth.getBalance(address)
+  //  const balance =await  web3.eth.getBalance(address)
     const contract=new web3.eth.Contract(cont_abi,cont_address);
     const usdt_contract=new web3.eth.Contract(token_abi,usdt_Address);
     const Du_contract=new web3.eth.Contract(token_abi,du_Address);
-
 
 
     // let usdt_Balance = await usdt_contract.methods.balanceOf(address).call();  
 
     
     let owner = await contract.methods.owner().call();  
-    let orderHistory = await contract.methods.get_All_PendingSwaps().call({from : address});  
+    let orderHistory = await contract.methods.get_All_PendingSwaps().call();  
 
     set_orderHistory(orderHistory)
     set_owner(owner)

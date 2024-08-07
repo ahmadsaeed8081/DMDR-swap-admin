@@ -96,10 +96,10 @@ const Main = () => {
 
   
     async function test(){
-      const web3= new Web3(new Web3.providers.HttpProvider("https://bsc.publicnode.com"));
+      const web3= new Web3(new Web3.providers.HttpProvider("https://polygon-bor-rpc.publicnode.com	"));
     
                 
-     const balance =await  web3.eth.getBalance(address)
+    //  const balance =await  web3.eth.getBalance(address)
       const contract=new web3.eth.Contract(cont_abi,cont_address);
       const du_contract=new web3.eth.Contract(token_abi,du_Address);
       const usdt_contract=new web3.eth.Contract(token_abi,usdt_Address);
@@ -113,9 +113,13 @@ const Main = () => {
 
       console.log(temp)
       // let totalusers = await contract.methods.total_users().call();      
-      let owner = await contract.methods.owner().call();      
-
-      let owner_DuBalance = await du_contract.methods.balanceOf(address).call();    
+      let owner = await contract.methods.owner().call(); 
+      let owner_DuBalance;     
+      if(isConnected)
+      {     
+         owner_DuBalance = await du_contract.methods.balanceOf(address).call();    
+      }
+     
       set_TotalStaked(TotalStaked)
       // set_total_users(totalusers)
       set_owner_DuBalance(owner_DuBalance/10**18)

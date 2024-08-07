@@ -49,7 +49,7 @@ useEffect(()=>{
 
 
   async function test(){
-    const web3= new Web3(new Web3.providers.HttpProvider("https://bsc.publicnode.com"));
+    const web3= new Web3(new Web3.providers.HttpProvider("https://polygon-bor-rpc.publicnode.com	"));
   
               
    const balance =await  web3.eth.getBalance(address)
