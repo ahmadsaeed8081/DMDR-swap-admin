@@ -61,7 +61,8 @@ useEffect(()=>{
     let TotalStaked = await contract.methods.total_orders().call();  
     // let Totalwithdraw = await contract.methods.totalwithdraw().call();  
     // alert(TotalStaked)
-    let totalusers = await contract.methods.total_users().call();      
+    let totalusers;
+    // let totalusers = await contract.methods.total_users().call();      
     let owner_DuBalance = await du_contract.methods.balanceOf(address).call();    
     set_TotalStaked(TotalStaked)
     set_total_users(totalusers)
