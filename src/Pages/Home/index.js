@@ -56,8 +56,8 @@ const Main = () => {
   const { config:withdrawFunds } = usePrepareContractWrite({
     address: cont_address,
     abi: cont_abi,
-    functionName: 'withdrawdu',
-    args: [Number(withdraw_amount)*10**18],
+    functionName: 'withdrawdmdr',
+    args: [Number(withdraw_amount)*10**9],
   
   
   })
@@ -65,7 +65,7 @@ const Main = () => {
     address: du_Address,
     abi: token_abi,
     functionName: 'transfer',
-    args: [cont_address,Number(send_amount)*10**18],
+    args: [cont_address,Number(send_amount)*10**9],
   
   })
 
@@ -78,7 +78,7 @@ const Main = () => {
       address: cont_address,
       abi: cont_abi,
       functionName: 'withdrawUsdt',
-      args: [Number(usdt_withdraw_amount)*10**18],
+      args: [Number(usdt_withdraw_amount)*10**6],
     
     
     })
@@ -86,7 +86,7 @@ const Main = () => {
       address: usdt_Address,
       abi: token_abi,
       functionName: 'transfer',
-      args: [cont_address,Number(usdt_send_amount)*10**18],
+      args: [cont_address,Number(usdt_send_amount)*10**6],
     
     })
     
@@ -122,9 +122,9 @@ const Main = () => {
      
       set_TotalStaked(TotalStaked)
       // set_total_users(totalusers)
-      set_owner_DuBalance(owner_DuBalance/10**18)
-      set_contract_DuBalance(contract_DuBalance/10**18)
-      set_contract_usdtBalance(contract_usdtBalance/10**18)
+      set_owner_DuBalance(owner_DuBalance/10**9)
+      set_contract_DuBalance(contract_DuBalance/10**9)
+      set_contract_usdtBalance(contract_usdtBalance/10**6)
 
       set_owner(owner)
       // set_totalwithdraw(Totalwithdraw/10**18)
@@ -163,9 +163,9 @@ const Main = () => {
       alert("kindly connect your owner wallet")
       return;
     }
-    if(owner_DuBalance<send_amount)
+    if(owner_DuBalance < send_amount)
     {
-      alert("you have insufficient funds")
+      alert("you have insufficient funds" + owner_DuBalance)
       return;
     }
     if(owner.toLowerCase()!=address.toLowerCase())

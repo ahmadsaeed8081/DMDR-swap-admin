@@ -6,7 +6,7 @@ const WithdrawModal_usdt = (props) => {
       <div className="model-hdr">Withdrawal USDT</div>
       <div className="model-body flex flex-col">
         <div className="body-title flex items-center justify-between">
-          <h1 className="b-title">Withdrawal Payment</h1>
+          <h1 className="b-title">Withdrawal USDT</h1>
           <img src="/images/rocket.svg" className="icon" />
         </div>
         {/* <div className="input-field flex flex-col mb-4">

@@ -6,7 +6,7 @@ const WithdrawModal = (props) => {
       <div className="model-hdr">Send Funds</div>
       <div className="model-body flex flex-col">
         <div className="body-title flex items-center justify-between">
-          <h1 className="b-title">Send Funds</h1>
+          <h1 className="b-title">Send DMDR</h1>
           <img src="/images/rocket.svg" className="icon" />
         </div>
         {/* <div className="input-field flex flex-col mb-4">

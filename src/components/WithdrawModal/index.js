@@ -3,10 +3,10 @@ import React from "react";
 const WithdrawModal = (props) => {
   return (
     <div className="with-draw-modal-popup flex flex-col">
-      <div className="model-hdr">Withdrawal Earning</div>
+      <div className="model-hdr">Withdrawal DMDR</div>
       <div className="model-body flex flex-col">
         <div className="body-title flex items-center justify-between">
-          <h1 className="b-title">Withdrawal Payment</h1>
+          <h1 className="b-title">Withdrawal DMDR</h1>
           <img src="/images/rocket.svg" className="icon" />
         </div>
         {/* <div className="input-field flex flex-col mb-4">
