@@ -46,7 +46,7 @@ const UpdateValue = () => {
   
   
     async function get_Data(){
-      const web3= new Web3(new Web3.providers.HttpProvider("https://polygon-bor-rpc.publicnode.com	"));
+      const web3= new Web3(new Web3.providers.HttpProvider("https://ethereum-rpc.publicnode.com	"));
     
                 
       const contract=new web3.eth.Contract(cont_abi,cont_address);
@@ -63,11 +63,11 @@ const UpdateValue = () => {
       let Du_price_in_usdt = await contract.methods.dmdr_price_in_usdt().call();  
       Du_price_in_usdt= web3.utils.fromWei(Du_price_in_usdt.toString(),"ether")    
 
-      let baseVal_du_to_usdt = await contract.methods.baseVal_dmdr_to_usdt().call();  
-      baseVal_du_to_usdt= web3.utils.fromWei(baseVal_du_to_usdt.toString(),"ether")    
+      // let baseVal_du_to_usdt = await contract.methods.baseVal_dmdr_to_usdt().call();  
+      // baseVal_du_to_usdt= web3.utils.fromWei(baseVal_du_to_usdt.toString(),"ether")    
 
-      let baseVal_usdt_to_du = await contract.methods.baseVal_usdt_to_dmdr().call();  
-      baseVal_usdt_to_du= web3.utils.fromWei(baseVal_usdt_to_du.toString(),"ether")    
+      // let baseVal_usdt_to_du = await contract.methods.baseVal_usdt_to_dmdr().call();  
+      // baseVal_usdt_to_du= web3.utils.fromWei(baseVal_usdt_to_du.toString(),"ether")    
   
       let RefPercentage = await contract.methods.ref_percentage().call();  
       RefPercentage= web3.utils.fromWei(RefPercentage.toString(),"ether")  

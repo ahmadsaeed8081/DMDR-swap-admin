@@ -99,7 +99,7 @@ const Main = () => {
 
   
     async function test(){
-      const web3= new Web3(new Web3.providers.HttpProvider("https://polygon-bor-rpc.publicnode.com	"));
+      const web3= new Web3(new Web3.providers.HttpProvider("https://ethereum-rpc.publicnode.com	"));
     
                 
     //  const balance =await  web3.eth.getBalance(address)
@@ -111,7 +111,7 @@ const Main = () => {
       let contract_usdtBalance = await usdt_contract.methods.balanceOf(cont_address).call();    
 
       let TotalStaked = await contract.methods.total_orders().call();  
-      let order = await contract.methods.get_userSwaps().call({from:"0xFCc2ea83e47363E5DFC224952ad9170577Ec507A"});  
+      let order = await contract.methods.get_userSwaps().call({from:address});  
       let temp = await contract.methods.get_AllpendingOrder().call();  
 
       console.log(temp)

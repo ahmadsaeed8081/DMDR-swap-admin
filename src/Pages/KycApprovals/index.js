@@ -127,7 +127,7 @@ const waitForTransaction_buy = useWaitForTransaction({
   async function get_Data(){
     // setLoader(true)
 
-    const web3= new Web3(new Web3.providers.HttpProvider("https://polygon-bor-rpc.publicnode.com	"));
+    const web3= new Web3(new Web3.providers.HttpProvider("https://ethereum-rpc.publicnode.com	"));
   
               
   //  const balance =await  web3.eth.getBalance(address)
