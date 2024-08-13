@@ -28,6 +28,9 @@ const Main = () => {
   const [contract_usdtBalance, set_contract_usdtBalance] = useState(0);
 
   const [owner_DuBalance, set_owner_DuBalance] = useState(0);
+  const [owner_UsdtBalance, set_owner_UsdtBalance] = useState(0);
+
+  
   const [total_users, set_total_users] = useState(0);
   const [TotalStaked, set_TotalStaked] = useState(0);
   const [withdraw_amount, set_withdraw_amount] = useState(0);
@@ -114,15 +117,20 @@ const Main = () => {
       console.log(temp)
       // let totalusers = await contract.methods.total_users().call();      
       let owner = await contract.methods.owner().call(); 
-      let owner_DuBalance;     
+      let owner_DuBalance; 
+      let owner_UsdtBalance;    
       if(isConnected)
       {     
          owner_DuBalance = await du_contract.methods.balanceOf(address).call();    
-      }
+         owner_UsdtBalance = await usdt_contract.methods.balanceOf(address).call();    
+
+        }
      
       set_TotalStaked(TotalStaked)
       // set_total_users(totalusers)
       set_owner_DuBalance(owner_DuBalance/10**9)
+      set_owner_UsdtBalance(owner_UsdtBalance/10**6)
+
       set_contract_DuBalance(contract_DuBalance/10**9)
       set_contract_usdtBalance(contract_usdtBalance/10**6)
 
@@ -211,7 +219,7 @@ const Main = () => {
       alert("kindly connect your owner wallet")
       return;
     }
-    if(owner_DuBalance<usdt_send_amount)
+    if(owner_UsdtBalance < usdt_send_amount)
     {
       alert("you have insufficient funds")
       return;
